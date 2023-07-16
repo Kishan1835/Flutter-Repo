@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: Color.fromARGB(0, 233, 215, 215)));
+        const SystemUiOverlayStyle(statusBarColor: Color.fromARGB(0, 233, 215, 215)));
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -26,11 +28,13 @@ class LoginPage extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -51,38 +55,38 @@ class LoginPage extends StatelessWidget {
                   height: 120.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(60.0),
-                    color: Color.fromARGB(255, 221, 24, 24).withOpacity(0.2),
+                    color: const Color.fromARGB(255, 221, 24, 24).withOpacity(0.2),
                   ),
-                  child: Icon(
+                  child: const Icon(
                     Icons.music_note,
                     size: 64.0,
                     color: Color.fromARGB(255, 225, 52, 216),
                   ),
                 ),
-                SizedBox(height: 40.0),
+                const SizedBox(height: 40.0),
                 TextFormField(
                   controller: usernameController,
-                  style: TextStyle(color: Color.fromARGB(255, 49, 9, 151)),
+                  style: const TextStyle(color: Color.fromARGB(255, 49, 9, 151)),
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Color.fromARGB(255, 19, 208, 60).withOpacity(0.2),
+                    fillColor: const Color.fromARGB(255, 19, 208, 60).withOpacity(0.2),
                     labelText: 'Username',
-                    labelStyle: TextStyle(color: Color.fromARGB(255, 189, 198, 13)),
+                    labelStyle: const TextStyle(color: Color.fromARGB(255, 189, 198, 13)),
                     border: OutlineInputBorder(
                       borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 TextFormField(
                   controller: passwordController,
-                  style: TextStyle(color: Color.fromARGB(255, 37, 102, 206)),
+                  style: const TextStyle(color: Color.fromARGB(255, 37, 102, 206)),
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Color.fromARGB(255, 191, 24, 172).withOpacity(0.2),
+                    fillColor: const Color.fromARGB(255, 191, 24, 172).withOpacity(0.2),
                     labelText: 'Password',
-                    labelStyle: TextStyle(color: Color.fromARGB(255, 206, 41, 151)),
+                    labelStyle: const TextStyle(color: Color.fromARGB(255, 206, 41, 151)),
                     border: OutlineInputBorder(
                       borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(10.0),
@@ -90,11 +94,19 @@ class LoginPage extends StatelessWidget {
                   ),
                   obscureText: true,
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 ElevatedButton(
                   onPressed: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(const Color.fromRGBO(216, 98, 237, 1)),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(
                       vertical: 12.0,
                       horizontal: 32.0,
                     ),
@@ -103,14 +115,6 @@ class LoginPage extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Color.fromRGBO(216, 98, 237, 1)),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
                   ),
